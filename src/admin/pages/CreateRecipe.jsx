@@ -33,6 +33,11 @@ export const CreateRecipe = () => {
                 <input type="text" id="instruction" name="instruction" className="form-control" required />
             </div>
 
+            <div class="form-group mb-3">
+                <label for="ingredients" class="form-label">Ingredientes</label>
+                <input type="text" id="ingredients" name="ingredients" className="form-control" required />
+            </div>
+
             <div className="form-group mb-3">
                   <label for="difficulty">Dificultad</label>
                   <select id="difficulty" name="difficulty">  
