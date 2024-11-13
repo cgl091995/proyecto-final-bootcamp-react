@@ -1,4 +1,4 @@
-import './Card.css'
+import './card.css'
 
 export const Card = ({categoria, receta, dificultad}) => {
     //argumentos importanción de función GridGallery
