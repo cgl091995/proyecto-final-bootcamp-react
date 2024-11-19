@@ -1,15 +1,13 @@
 
 import { GridGalleryPublic } from "../components/GridGalleryPublic"
 
+export const Pollo = () => {
 
-
-export const Vegetarianas = () => {
- 
-  const category="vegetarianas"
+  const category="pollo"
   
   return (
     <>
-    <h1>Vegetarianas</h1>
+    <h1>Pollo</h1>
 
     <GridGalleryPublic category={category}/>
 
@@ -18,3 +16,4 @@ export const Vegetarianas = () => {
   </>
   )
 }
+

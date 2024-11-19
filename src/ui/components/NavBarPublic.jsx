@@ -10,27 +10,39 @@ export const NavBarPublic = () => {
           <li><NavLink
               to='/'
               className={({ isActive }) => isActive ? 'menuActivo' : ''}>
-              Recetas
+              HOME
               </NavLink>
           </li>
 
           <li><NavLink
               to='/carne'
               className={({ isActive }) => isActive ? 'menuActivo' : ''}>
-              Carne
+              CARNE
               </NavLink>
           </li>
 
           <li><NavLink
               to='/veganas'
               className={({ isActive }) => isActive ? 'menuActivo' : ''}>
-              Veganas
+              VEGANAS
               </NavLink>
           </li>
           <li><NavLink
-              to='/aves'
+              to='/pollo'
               className={({ isActive }) => isActive ? 'menuActivo' : ''}>
-              Aves
+              AVES
+              </NavLink>
+          </li>
+          <li><NavLink
+              to='/vegetarianas'
+              className={({ isActive }) => isActive ? 'menuActivo' : ''}>
+              VEGETARIANAS
+              </NavLink>
+          </li>
+          <li><NavLink
+              to='/pescado'
+              className={({ isActive }) => isActive ? 'menuActivo' : ''}>
+              PESCADO
               </NavLink>
           </li>
           <li>

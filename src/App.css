@@ -100,6 +100,16 @@ form {
     align-items: center;
 }
 
+form button {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
@@ -116,7 +126,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 
 
 footer {

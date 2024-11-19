@@ -16,7 +16,7 @@ export const LoginPage = () => {
         /* comprobar qye existe usuario con ese nombre y contraseña en la base de datos*/
 
         const logeredUser = {
-            id: 2,
+            id: 1,
             nombre,
             roll: 'admin'
         }
@@ -27,9 +27,10 @@ export const LoginPage = () => {
     }
     return (
         <>
-            <code><pre>{JSON.stringify(user, null, " ")}</pre></code>
-            <section>
-            <h1>LoginPage</h1>            
+            
+            <section className="container mb-5">
+            <h1>Inice Sesión</h1>  
+                      
             <p>{isAuthenticated ? 'está autenticado' : 'no está autenticado'}</p>
             </section>
             <form
