@@ -204,9 +204,7 @@ footer {
 
 
 @media screen and (min-width: 576px) {
-    #galeria {
-        grid-template-columns: repeat(2, 1fr); 
-    }
+    
 }
 /*--------------------------------------------
                 576px
@@ -215,9 +213,7 @@ footer {
 */
 
 @media screen and (min-width: 768px) {
-    #galeria {
-        grid-template-columns: repeat(3, 1fr); 
-    }
+    
 }
 /*--------------------------------------------
                 768px
@@ -226,7 +222,5 @@ footer {
 */
 
 @media screen and (min-width: 1200px) {
-    #galeria {
-        grid-template-columns: repeat(4, 1fr); 
-    }
+    
 }

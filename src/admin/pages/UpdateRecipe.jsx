@@ -19,8 +19,6 @@ export const UpdateRecipe = () => {
     <div>UpdateRecipe</div>
    
 
-  
-
     <form action="/admin"
           encType="multipart/form-data" 
           className="border p-4 rounded bg-light shadow-sm"
