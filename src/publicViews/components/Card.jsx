@@ -21,8 +21,8 @@ export const Card = ({title, description, instructions, difficulty, preparation_
             </div>
           
             <div className="card-footer">
-                {<button className='btn btn-primary'><Link to={'/update-recipe'}>editar</Link></button>}
-                {<button className='btn btn-secondary'><Link to={'/delete-recipe'}>borrar</Link></button>}
+                {<button className='buttonCard'><Link to={'/update-recipe/:id'}>editar</Link></button>}
+                {<button className='buttonCard'><Link to={'/delete-recipe/:id'}>borrar</Link></button>}
             </div>
 
           </article>

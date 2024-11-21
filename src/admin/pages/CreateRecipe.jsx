@@ -1,46 +1,47 @@
-import { useEffect } from "react"
-import { useFetch } from "../../hooks/useFetch"
-import { useForm } from "../../hooks/useForm"
 
+import { useFetch } from "../../hooks/useFetch"
+import { serializeForm } from "../helpers/serializeForm";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+
+
+//title, description, instructions, difficulty, preparation_time, user_id, ingredients, main_ingredient, fotos
 
 
 export const CreateRecipe = () => {
 
-  const { formulario, handlerSubmit, handlerChange } = useForm({
-      title: "",
-      description: "",
-      instructions: "",
-      difficulty: "",
-      preparation_time: "",
-      ingredients: "",
-      foto: "",
-  });
-
+  const navigate = useNavigate()
+  const {data, getData, isLoading, error} = useFetch()
   
 
-  const url = import.meta.env.VITE_URL_BASE;
+  const createOnSubmit = async (ev) =>{
+      ev.preventDefault()
+    const formulario = serializeForm(ev.target)
+   
+   
+      try {
+            const url = `${import.meta.env.VITE_URL_BASE}/api/v1/create-recipe`;
+         
+            const resp = await getData (url, 'POST', formulario)
+            console.log(resp, "resp en create-recipe")
+              if(resp.ok){
+                 navigate('/admin')
+              }else{
+                console.log('Error al crear receta')
+              }
+      } catch (error) {
+                console.log(error)
+            }
+
+  }
 
   
-  const { data, error } = useFetch(`${url}/admin/create-recipe`, "POST", formulario);
-
- 
-  useEffect(() => {
-      if (data) {
-          console.log("Datos enviados correctamente:", data);
-      }
-
-      if (error) {
-          console.error("Hubo un error al enviar la receta:", error);
-      }
-  }, [data, error]); 
-
-
   return (
     <>
     <p>Crea tu receta</p>
 
-    <form encType="multipart/form-data" 
-          onSubmit={handlerSubmit}
+    <form  
+          onSubmit={createOnSubmit}
           id="formularioCrearReceta" 
           name="formularioCrearReceta" 
           >
@@ -58,12 +59,11 @@ export const CreateRecipe = () => {
            
         <div>
           <label htmlFor="description" className="form-label">Descripción</label>
-              <input   //mirar textArea en lugar de este input
+              <textarea
                 type="text" 
                 id="description" 
                 name="description" 
-                className="form-control" 
-                value={formulario.description} 
+                className="form-control"  
                 required 
             />
         </div>
@@ -74,8 +74,7 @@ export const CreateRecipe = () => {
               type="text" 
               id="instructions" 
               name="instructions" 
-              className="form-control" 
-              value={formulario.instructions} 
+              className="form-control"          
               required 
     
             />
@@ -92,6 +91,19 @@ export const CreateRecipe = () => {
               <option value="1">Fácil</option>
               <option value="2">Media</option>
               <option value="3">Difícil</option>
+            </select>
+        </div>
+
+        <div>
+          <label htmlFor="user_id">User</label>
+            <select 
+              id="user_id" 
+              name="user_id" 
+              className="form-control" 
+          
+            >
+              <option value="1">admin</option>
+              
             </select>
         </div>
 
@@ -117,6 +129,22 @@ export const CreateRecipe = () => {
               className="form-control" 
               required  
           />
+        </div>
+
+        <div>
+          <label htmlFor="main_ingredient">Ingrediente principal</label>
+            <select 
+              id="main_ingredient" 
+              name="main_ingredient" 
+              className="form-control" 
+          
+            >
+              <option value="1">pollo</option>
+              <option value="2">carne</option>
+              <option value="3">vegetariano</option>
+              <option value="4">vegano</option>
+              <option value="5">pescado</option>
+            </select>
         </div>
 
 

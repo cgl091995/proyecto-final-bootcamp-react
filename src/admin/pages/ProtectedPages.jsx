@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "../../context/UserContext"
 import { GridGallery } from "../components/GridGallery"
 import { useFetch } from "../../hooks/useFetch"
+import { Link } from "react-router-dom"
 
 export const ProtectedPages = () => {
   const { logout } = useContext(UserContext)
@@ -13,12 +14,12 @@ export const ProtectedPages = () => {
   
   return (
       <>
-          <p>Página Admin</p>
+          
 
           <GridGallery />
 
 
-          <button onClick={handlerClick}>logout</button>
+          <button onClick={handlerClick}><Link to={'/'}>log Out</Link></button>
       </>
   )
 }

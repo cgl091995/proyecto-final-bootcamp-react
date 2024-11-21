@@ -27,30 +27,16 @@ export const NavBarAdmin = () => {
 
             <li>
                 <NavLink
-                    to="update-recipe"
+                    to="update-recipe/:id"
                     className={({ isActive }) => isActive ? 'menuActivo' : ''}
                 >
                     Edita una receta
                 </NavLink>
             </li>
 
-            <li>
-                <NavLink
-                    to="delete-recipe"
-                    className={({ isActive }) => isActive ? 'menuActivo' : ''}
-                >
-                    Borra una receta
-                </NavLink>
-            </li>
+          
 
-            <li>
-                <NavLink
-                    to="logout"
-                    className={({ isActive }) => isActive ? 'menuActivo' : ''}
-                >
-                    logout
-                </NavLink>
-            </li>
+            
 
         </ul>
     )

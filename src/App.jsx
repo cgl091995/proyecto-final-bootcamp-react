@@ -21,7 +21,7 @@ function App() {
           </main>
 
           <footer>
-              Este es el footer
+          <p>© 2024 Recipe App. Todos los derechos reservados.</p>
           </footer>
         </UserProvider>
       </>

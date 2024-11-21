@@ -19,11 +19,10 @@ export const UpdateRecipe = () => {
     <div>UpdateRecipe</div>
    
 
-    
-    <p>Crea tu receta</p>
+  
 
     <form action="/admin"
-          enctype="multipart/form-data" 
+          encType="multipart/form-data" 
           className="border p-4 rounded bg-light shadow-sm"
           id="formularioCrearReceta" 
           name="formularioCrearReceta" 
@@ -45,7 +44,7 @@ export const UpdateRecipe = () => {
 
             
             <div>
-                <label htmlFor="description" class="form-label">Descripción</label>
+                <label htmlFor="description" className="form-label">Descripción</label>
                 <input type="text" id="description" name="description" className="form-control" required />
             </div>
 

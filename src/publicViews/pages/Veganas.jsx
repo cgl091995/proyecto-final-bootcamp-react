@@ -4,7 +4,7 @@ import {  GridGalleryPublic } from "../components/GridGalleryPublic"
 
 export const Veganas = () => {
 
-  const category="veganas" 
+  const category="vegano" 
   
   return (
     <>

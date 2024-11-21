@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { HomePage, LoginPage, Pollo, Pescado, Carne, Veganas, Vegetarianas } from "../publicViews/pages"
+import { HomePage, LoginPage, Pollo, Pescado, Carne, Veganas, Vegetarianas, RecetaId } from "../publicViews/pages"
 import { ProtectedPages } from "../admin/pages"
 import { UserContext } from "../context/UserContext"
 import { useContext } from "react"
@@ -35,14 +35,15 @@ export const AppRouters = () => {
         <>
                <Route exact path='/admin' element={<ProtectedPages />} />
                <Route exact path='/create-recipe' element={<CreateRecipe />} />
-               <Route exact path='/update-recipe' element={<UpdateRecipe />} />
-               <Route exact path='/delete-recipe' element={<DeleteRecipe />} />
+               <Route exact path='/update-recipe/:id' element={<UpdateRecipe />} />
+               <Route exact path='/delete-recipe/:id' element={<DeleteRecipe />} />
+               <Route path='/*' element={<Navigate to={'/'} />} />
       </>
         :
         <>
            {/*rutas públicas */}
                <Route path='/' element={<HomePage />} />
-               {/* <Route path='/:id' element={<HomePage />} /> */}
+               <Route path="/:id" element={<RecetaId />} /> 
                <Route path='pollo' element={<Pollo />} />
                <Route path='carne' element={<Carne />} />
                <Route path='logIn' element={<LoginPage />} />

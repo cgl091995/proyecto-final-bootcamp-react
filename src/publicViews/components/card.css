@@ -56,39 +56,12 @@
     align-items: center;
   }
   
-  .btn {
-    padding: 8px 12px;
+  .buttonCard {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
     border: none;
     border-radius: 5px;
-    font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .btn-primary {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #5a6268;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  .btn-danger:hover {
-    background-color: #c82333;
-  }
-  
+    transition: background-color 0.3s;
+}

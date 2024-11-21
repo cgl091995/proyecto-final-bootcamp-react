@@ -92,6 +92,62 @@ nav ul li a:hover {
     color: #006699;
 }
 
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Text content */
+  .text-content {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    color: brown;
+    margin-bottom: 10px;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Highlight */
+  .text-content em {
+    color: #27ae60;
+    font-style: normal;
+    font-weight: bold;
+  }
+  
+  /* Image content */
+  .image-content {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
 form {
     display: flex;
@@ -133,6 +189,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    position: static;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 2px -2px gray;

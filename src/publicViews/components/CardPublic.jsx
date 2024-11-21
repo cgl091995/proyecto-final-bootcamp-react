@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import './card.css'
 
-    export const CardPublic = ({title, description, instructions, difficulty, preparation_time, ingredients, fotos, recipes_id}) => {
+    export const CardPublic = ({title, description, instructions, difficulty, preparation_time, ingredients, fotos, recipe_id}) => {
         //argumentos importanción de función GridGallery
-    
+      console.log(recipe_id, "recipe_id en cardPublic")
             return(
     
                 <article className="card">
@@ -20,7 +20,7 @@ import './card.css'
                 </div>
               
                 <div className="card-footer"> 
-                {<Link to={`/recipes/${recipes_id}`} className="btn btn-primary">ver más</Link> }
+                {<Link to={`/${recipe_id}`} className="btn btn-primary">ver más</Link> }
                 </div>
               </article>
     
