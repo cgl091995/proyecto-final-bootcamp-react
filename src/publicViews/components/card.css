@@ -1,0 +1,67 @@
+/* General card styling */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    max-width: 300px;
+    margin: 20px;
+  }
+  
+  /* Card hover effect */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Header section */
+  .card-header {
+    margin-bottom: 16px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 8px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+  }
+  
+  /* Content section */
+  .card-content {
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+  
+  .card-content p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #444;
+  }
+  
+  /* Footer section with buttons */
+  .card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .buttonCard {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

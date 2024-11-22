@@ -1,42 +1,226 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+header {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 30px; 
+    margin-top: 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px; 
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f0f8ff;
+    color: #007acc;
+}
+
+.adminNav, .publicNav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.adminNav li, .publicNav li {
+    margin: 0 5px;
+}
+
+.adminNav li a, .publicNav li a {
+    color: #555;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.adminNav li a:hover, .publicNav li a:hover {
+    background-color: #e6f7ff;
+    color: #006699;
+}
+
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Hero section */
+  .hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  /* Text content */
+  .text-content {
+    flex: 1;
+    max-width: 600px;
   }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    color: brown;
+    margin-bottom: 10px;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Highlight */
+  .text-content em {
+    color: #27ae60;
+    font-style: normal;
+    font-weight: bold;
+  }
+  
+  /* Image content */
+  .image-content {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
 }
 
-.card {
-  padding: 2em;
+form button {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 2px -2px gray;
+}
+
+/* Estilos Responsivos */
+
+/*---------------------------------------------
+                576px
+-----------------------------------------------
+*/
+
+
+@media screen and (min-width: 576px) {
+    
+}
+/*--------------------------------------------
+                576px
+                768px
+----------------------------------------------
+*/
+
+@media screen and (min-width: 768px) {
+    
+}
+/*--------------------------------------------
+                768px
+                1200px
+----------------------------------------------
+*/
+
+@media screen and (min-width: 1200px) {
+    
 }
