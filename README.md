@@ -1,3 +1,4 @@
+
 # Frontend - Recipe App
 Este es el frontend de la aplicación Recipe App, desarrollado con React, para permitir a los usuarios explorar recetas, añadirlas a favoritos y filtrarlas por categoría.
 
