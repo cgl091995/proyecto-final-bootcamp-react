@@ -8,27 +8,21 @@ import { DeleteRecipe } from "../admin/pages/DeleteRecipe"
 import { UpdateRecipe } from "../admin/pages/UpdateRecipe"
 
 
+/**
+ * Componente que define las rutas y la navegación de la aplicación.
+ * 
+ * Este componente gestiona las rutas tanto públicas como protegidas, dependiendo del estado de autenticación del usuario.
+ * Si el usuario está autenticado, se muestran las rutas para las páginas de administración (crear, actualizar, eliminar recetas).
+ * Si el usuario no está autenticado, se muestran las rutas públicas para explorar las recetas y acceder al login.
+ * 
+ * @returns {JSX.Element} El componente con las rutas y redirecciones de la aplicación.
+ */
 export const AppRouters = () => {
     const { isAuthenticated } = useContext(UserContext)
 
     return(
-    <Routes>
+   <Routes>
 
-        {/* rutas públicas
-    <Route path='/' element={<HomePage />} />
-    {/* <Route path='/:id' element={<HomePage />} /> */}
-    {/* <Route path='pollo' element={<Pollo />} />
-    <Route path='carne' element={<Carne />} />
-    <Route path='logIn' element={<LoginPage />} />
-    <Route path='veganas' element={<Veganas />} />
-    <Route path='vegetarianas' element={<Vegetarianas />} />
-    <Route path='carne' element={<Carne />} />
-    <Route path='pescado' element={<Pescado />} />
-    <Route path='/*' element={<Navigate to={'/'} />} /> */} 
-    
-
-        {/*rutas protegidas */}
-        {/*rutas protegidas para el admin */}
      {
         isAuthenticated
         ?
@@ -40,7 +34,7 @@ export const AppRouters = () => {
                <Route path='/*' element={<Navigate to={'/'} />} />
       </>
         :
-        <>
+    <>
            {/*rutas públicas */}
                <Route path='/' element={<HomePage />} />
                <Route path="/:id" element={<RecetaId />} /> 
@@ -52,41 +46,12 @@ export const AppRouters = () => {
                <Route path='carne' element={<Carne />} />
                <Route path='pescado' element={<Pescado />} />
                <Route path='/*' element={<Navigate to={'/'} />} />
-        </>  
+      </>  
      }   
      
-      {/* {
-        isAuthenticated
-        ?
-        <Route exact path='/create-recipe' element={<CreateRecipe />} />
-        :
-        <Route path='/*' element={<Navigate to = {'login'}/>}/>   
-     }  
-     {
-        isAuthenticated
-        ?
-        <Route exact path='/update-recipe' element={<UpdateRecipe />} />
-        :
-        <Route path='/*' element={<Navigate to = {'login'}/>}/>   
-     }  
-     {
-        isAuthenticated
-        ?
-        <Route exact path='/delete-recipe' element={<DeleteRecipe />} />
-        :
-        <Route path='/*' element={<Navigate to = {'login'}/>}/>   
-     }   */}
-
-    </Routes>
+   </Routes>
    
   )
     
-
-
-
-
-
-
-
 
 }

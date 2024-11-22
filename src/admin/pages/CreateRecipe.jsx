@@ -2,35 +2,46 @@
 import { useFetch } from "../../hooks/useFetch"
 import { serializeForm } from "../helpers/serializeForm";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
 
 
-//title, description, instructions, difficulty, preparation_time, user_id, ingredients, main_ingredient, fotos
 
-
+/**
+ * Componente para crear una nueva receta.
+ * Este componente permite al usuario rellenar un formulario con los detalles de la receta, 
+ * enviarlos al servidor y redirigir al administrador a la página de administración si la creación fue exitosa.
+ */
 export const CreateRecipe = () => {
 
+  // Hook de React Router para redirigir al usuario
   const navigate = useNavigate()
+  // Hook personalizado para obtener datos
   const {data, getData, isLoading, error} = useFetch()
   
-
+    /**
+   * Función que maneja el envío del formulario para crear una receta.
+   * La función obtiene los datos del formulario, los serializa y los envía al backend.
+   * Si la creación es exitosa, redirige al usuario a la página de administración.
+   * 
+   * @param {React.FormEvent} ev - El evento de submit del formulario.
+   */
   const createOnSubmit = async (ev) =>{
-      ev.preventDefault()
-    const formulario = serializeForm(ev.target)
+
+    ev.preventDefault()// Previene el comportamiento por defecto del formulario
+    const formulario = serializeForm(ev.target)  // Serializa los datos del formulario
    
    
       try {
-            const url = `${import.meta.env.VITE_URL_BASE}/api/v1/create-recipe`;
+            const url = `${import.meta.env.VITE_URL_BASE}/api/v1/create-recipe`; // URL de la API para crear receta
          
-            const resp = await getData (url, 'POST', formulario)
+            const resp = await getData (url, 'POST', formulario) // Envía los datos al servidor
             console.log(resp, "resp en create-recipe")
               if(resp.ok){
-                 navigate('/admin')
+                 navigate('/admin') // Redirige a la página de inicio de admin si la creación es exitosa
               }else{
-                console.log('Error al crear receta')
+                console.log('Error al crear receta') 
               }
       } catch (error) {
-                console.log(error)
+                console.log(error) // Maneja errores de la petición
             }
 
   }

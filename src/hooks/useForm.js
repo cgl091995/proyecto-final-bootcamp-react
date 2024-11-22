@@ -1,47 +1,76 @@
 import { useState } from "react"
 
 
+/**
+ * Hook personalizado para gestionar formularios, serializar sus datos y manejar los cambios en los campos del formulario.
+ *
+ * Este hook proporciona funcionalidades para manejar el estado de un formulario, serializar sus datos y actualizar el estado del formulario cuando los campos cambian.
+ *
+ * @returns {Object} Un objeto con los siguientes valores:
+ *   - `handlerSubmit`: Función para manejar el evento `submit` del formulario.
+ *   - `handlerChange`: Función para manejar el evento `change` de los campos del formulario.
+ *   - `formulario`: El estado actual del formulario con los datos introducidos.
+ */
 export const useForm = () => {
-    const [formulario, setFormulario] = useState("") // [formulario = formulario. representa el estado del componente  | setFormulario = representa la función con la que cambiaremos el valor de ese estado] | useState = recibe como argumento el valor inicial. y retorna el estado actual del componente y la función que hará el cambio del componente
+
+     // Estado para almacenar los datos del formulario
+    const [formulario, setFormulario] = useState("") 
 
 
-    const serializeForm = (formulario) => { // creamos función manejadora para serializar el formulario. la función será valida para cualquier formulario.
-        const formData = new FormData(formulario) // creamos constante para instanciar el objeto y su clase FormData, el cual almacena todos los datos del formulario. key and value. 
+      /**
+     * Serializa los datos de un formulario y los convierte en un objeto con clave-valor.
+     * 
+     * @param {HTMLFormElement} formulario - El formulario HTML a ser serializado.
+     * @returns {Object} Un objeto con los datos del formulario, donde cada campo es una clave y su valor es el valor ingresado.
+     */
+    const serializeForm = (formulario) => { 
+
+        const formData = new FormData(formulario) // se crea una instancia de FormData con los datos del formulario
         console.log(formData)
 
         const data = {} // creamos constante de objeto vacío donde guardaremos los futuros valores del formulario. key y value
 
-        for (let [name, value] of formData) { //recorremos con un for of el name y el value de formData, es decir, de todos los datos del formulario
-            data[name] = value                  // y asignamos a la constante data el name. quedaría name = value. [name(primera posición array),value(segunda posición array)]
+        // Recorremos los datos del formulario y los añadimos al objeto 'data'
+        for (let [name, value] of formData) { 
+            data[name] = value                  
         }
 
-        return data //retonamos y obtenemos el objeto data con su llave / valor
+        return data // Retorna el objeto con los datos serializados
 
     }
 
-    const handlerSubmit = (ev) => { //funcion manejadora que ejecutará el evento submit. le asignamos un preventDefault. afecta al botón submit
-        ev.preventDefault()
-        console.log(ev.target) //target es una propiedad del evento target.
+    /**
+     * Maneja el evento `submit` de un formulario, previene su comportamiento por defecto y serializa los datos.
+     * 
+     * @param {Event} ev - El evento de submit que se dispara al enviar el formulario.
+     * 
+     */
+    const handlerSubmit = (ev) => { 
 
-        const data = serializeForm(ev.target) // en la constante data se ejecutará la función de serialización cuando se clicke el submit
-
-        setFormulario(data) // se actualizará la información recibida en el formulario
+        ev.preventDefault() // Prevenimos el comportamiento por defecto (recarga de página)
+        
+        const data = serializeForm(ev.target) // Serializa el formulario y guarda los datos en el estado 'formulario'
     }
 
+    /**
+     * Maneja el evento `change` de los campos del formulario. Actualiza el estado del formulario con los valores actuales.
+     * 
+     * @param {Event} ev - El evento de cambio que se dispara al modificar un campo del formulario.
+     * 
+     */
+    const handlerChange = ({ target }) => { 
 
-    const handlerChange = ({ target }) => { // función manejadora del evento change, que permitirá modificar los datos introducidos en el formulario. afecta a todo el formulario
+        const { name, value } = target // Desestructuramos el campo del formulario
 
-        const { name, value } = target // cuando se realice el evento, lo instanciamos en la constante creada, la cual hemos desestructurado.
-
-        setFormulario({         //datos actualizados, recogeremos los datos del formulario antiguo, y los datos del nuevo
+        setFormulario({         // Actualizamos el estado del formulario con los nuevos datos
             ...formulario,      //esparcimos los datos del anterior formulario
-            [name]: value       //name entre corchetes ya que no queremos que se cree una nueva propiedad (key) y nuevo valor.
+            [name]: value       // Actualizamos el valor del campo modificado
         })
     }
 
 
     return {
-        handlerSubmit,      //retornamos estas funciones y formData para poder enviarlos como argumentos a otra función en otro componente
+        handlerSubmit,      //retornamos estas funciones y el estado del formulario
         handlerChange,
         formulario
     }

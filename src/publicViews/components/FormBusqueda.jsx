@@ -2,6 +2,7 @@ import { useFetch } from "../../hooks/useFetch"
 import { useForm } from "../../hooks/useForm"
 import { CardPublic } from "./CardPublic"
 
+
 export const FormBusqueda =  ({title}) => {
   const {data, getData, isLoading, error} = useFetch()
   const {formulario} = useForm()

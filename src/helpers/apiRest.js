@@ -1,18 +1,27 @@
 
+/**
+ * Función para hacer peticiones HTTP utilizando `fetch`. 
+ * Esta función soporta los métodos `GET`, `POST`, `PUT`, y `DELETE`, y se encarga de 
+ * gestionar las opciones de la solicitud según el tipo de petición.
+ *
+ * @param {string} url - La URL a la que se realiza la solicitud.
+ * @param {string} [method="GET"] - El método HTTP a utilizar (por defecto es "GET").
+ * @param {object} [body={}] - El cuerpo de la solicitud, solo se utiliza para los métodos `POST` y `PUT`.
+ * @returns {Promise<object>} - Devuelve una promesa que resuelve con la respuesta en formato JSON si la solicitud es exitosa.
+ * @throws {Error} - Lanza un error si la conexión falla o la respuesta no es exitosa.
+ */
 export const apiRest = async (url, method = "GET", body = {}) => {
     
     let options = {}
-    // const url= import.meta.env.URL_BASE
-    // console.log(url, "url apiRest")
-    // console.log(method, "method apiRest")
-    // console.log(body, "apiRest")
+  
     if (method == 'POST' || method == 'PUT'){
         
         options={
             method,
-            body: JSON.stringify(body),
+            body: JSON.stringify(body),// Convierte el cuerpo del objeto en JSON
+            mode: `cors`,
             header:{
-                "Content-Type": "application/json"
+                "Content-Type": "application/json" // Especifica que el contenido de la solicitud es de tipo JSON
             }
         }    
     }
@@ -25,13 +34,13 @@ export const apiRest = async (url, method = "GET", body = {}) => {
         const resp= await fetch(url, options)
        
         if(resp.ok){
-          return resp.json()
+          return resp.json() // Retorna la respuesta en formato JSON si la solicitud es exitosa
         }else{
-            throw('connection failed')
+            throw('connection failed') // Lanza un error si la respuesta no es exitosa
         }
     } catch (error) {
         console.log( `ERROR: ${error}`)
-            throw error
+            throw error 
         
     }
 }

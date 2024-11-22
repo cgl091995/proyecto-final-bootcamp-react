@@ -3,26 +3,28 @@ import { CardPublic } from './CardPublic'
 import '../../ui/components/gridGallery.css'
 import { useState } from 'react'
 
+/**
+ * Componente que muestra una galería de recetas públicas por categoría.
+ * 
+ * Este componente obtiene las recetas de una categoría específica y las muestra en una galería de tarjetas. Utiliza el hook `useFetch` para obtener los datos desde el backend y manejar el estado de carga, error y datos.
+ * 
+ * @param {Object} props - Las propiedades del componente.
+ * @param {string} props.category - La categoría de recetas a mostrar, como 'pollo', 'vegetariana', etc.
+ *
+ * @returns {JSX.Element} Una galería de recetas mostrada como tarjetas. Si la carga está en progreso, muestra un mensaje de carga.
+ */
+
 export const GridGalleryPublic = ({category}) =>{
-        //llamamos al hook de fetch mandándole la categoria y devolverá array recetas    
-        console.log(category)
-        const [datos,setDatos] = useState([])
+       
+    const [datos,setDatos] = useState([]) // Estado para almacenar los datos de las recetas
 
-     const url= `${import.meta.env.VITE_URL_BASE}/api/v1/recipes/${category}`
+    const url= `${import.meta.env.VITE_URL_BASE}/api/v1/recipes/${category}` // URL para la API con la categoría como parámetro
 
-    //  console.log(url, "url en gridGalleryPublic")
+    const {data, error, isLoading, getData} = useFetch(url) // Hook personalizado useFetch para obtener datos
 
-    const {data, error, isLoading, getData} = useFetch(url)
+    const {recipes, ok, total_results, total_pages} = data // Desestructuración de los datos obtenidos
 
-    // const updateData = async()=>{
-    //     getData(url)
-    // }
-
-
-    const {recipes, ok, total_results, total_pages} = data
-
-    // console.log(data)
- 
+    
 
     return(
         
