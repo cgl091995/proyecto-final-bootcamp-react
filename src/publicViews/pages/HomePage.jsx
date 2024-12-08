@@ -35,10 +35,12 @@ export const HomePage = () => {
             </div>
             </div>
         </div>
-                    <section>
-                        {/* <FormBusqueda />  */}
-                    </section>
-                    
+
+        <div>
+            <section>
+                <FormBusqueda />  
+            </section>
+        </div>            
                     
                 </>
     )

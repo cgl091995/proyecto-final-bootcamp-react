@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch"
 import { serializeForm } from "../helpers/serializeForm";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
  */
 export const CreateRecipe = () => {
 
+  
   // Hook de React Router para redirigir al usuario
   const navigate = useNavigate()
   // Hook personalizado para obtener datos
@@ -27,7 +29,9 @@ export const CreateRecipe = () => {
   const createOnSubmit = async (ev) =>{
 
     ev.preventDefault()// Previene el comportamiento por defecto del formulario
+    
     const formulario = serializeForm(ev.target)  // Serializa los datos del formulario
+
    
    
       try {
@@ -64,6 +68,7 @@ export const CreateRecipe = () => {
               id="title" 
               name="title" 
               className="form-control" 
+              // value={form.title}
               required 
             />
           </div>
@@ -75,6 +80,7 @@ export const CreateRecipe = () => {
                 id="description" 
                 name="description" 
                 className="form-control"  
+                // value={form.description}
                 required 
             />
         </div>
@@ -85,7 +91,8 @@ export const CreateRecipe = () => {
               type="text" 
               id="instructions" 
               name="instructions" 
-              className="form-control"          
+              className="form-control" 
+              // value={form.instructions}         
               required 
     
             />
@@ -97,11 +104,12 @@ export const CreateRecipe = () => {
               id="difficulty" 
               name="difficulty" 
               className="form-control" 
+              // value={form.difficulty}
           
             >
-              <option value="1">Fácil</option>
-              <option value="2">Media</option>
-              <option value="3">Difícil</option>
+              <option value="easy">Fácil</option>
+              <option value="medium">Media</option>
+              <option value="hard">Difícil</option>
             </select>
         </div>
 
@@ -111,6 +119,7 @@ export const CreateRecipe = () => {
               id="user_id" 
               name="user_id" 
               className="form-control" 
+              // value={form.user_id}
           
             >
               <option value="1">admin</option>
@@ -127,6 +136,7 @@ export const CreateRecipe = () => {
               name="preparation_time" 
               className="form-control" 
               min="1" 
+              // value={form.preparation_time}
               required 
           />
         </div>
@@ -138,6 +148,7 @@ export const CreateRecipe = () => {
               id="ingredients" 
               name="ingredients" 
               className="form-control" 
+              // value={form.ingredients}
               required  
           />
         </div>
@@ -148,6 +159,7 @@ export const CreateRecipe = () => {
               id="main_ingredient" 
               name="main_ingredient" 
               className="form-control" 
+              // value={form.main_ingredient}
           
             >
               <option value="1">pollo</option>
@@ -166,6 +178,7 @@ export const CreateRecipe = () => {
               id="foto" 
               name="foto" 
               className="form-control"  
+              // value={form.foto}
           />
         </div>
 

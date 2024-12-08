@@ -42,6 +42,16 @@ nav {
     margin-top: 15px;
 }
 
+.gridBuscador{
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fija 3 columnas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-items: center; /* Centra las tarjetas horizontalmente */
+    align-items: stretch; /* Estira las tarjetas para que tengan la misma altura */
+      
+}
+
 nav ul {
     display: flex;
     list-style: none;

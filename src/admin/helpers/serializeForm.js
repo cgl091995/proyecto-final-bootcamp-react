@@ -10,6 +10,7 @@
  * @returns {Object} - Un objeto con los datos del formulario, donde las claves son los nombres de los campos y los valores son sus respectivos valores.
  */
 export const serializeForm = (formulario) => { 
+    console.log(formulario)
     // Creamos una nueva instancia de FormData con los datos del formulario
     const formData = new FormData(formulario)  
     console.log(formData)

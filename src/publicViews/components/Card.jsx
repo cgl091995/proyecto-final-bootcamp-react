@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './card.css'
 
-export const Card = ({title, description, instructions, difficulty, preparation_time, ingredients, fotos}) => {
+export const Card = ({recipe_id, title, description, instructions, difficulty, preparation_time, ingredients, fotos}) => {
     //argumentos importanción de función GridGallery
     
         return(
@@ -21,8 +21,8 @@ export const Card = ({title, description, instructions, difficulty, preparation_
             </div>
           
             <div className="card-footer">
-                {<button className='buttonCard'><Link to={'/update-recipe/:id'}>editar</Link></button>}
-                {<button className='buttonCard'><Link to={'/delete-recipe/:id'}>borrar</Link></button>}
+                {<button className='buttonCard'><Link to={`/update-recipe/${recipe_id}`}>editar</Link></button>}
+                {<button className='buttonCard'><Link to={`/delete-recipe/${recipe_id}`}>borrar</Link></button>}
             </div>
 
           </article>

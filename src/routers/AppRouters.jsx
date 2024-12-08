@@ -6,6 +6,7 @@ import { useContext } from "react"
 import { CreateRecipe } from "../admin/pages/CreateRecipe"
 import { DeleteRecipe } from "../admin/pages/DeleteRecipe"
 import { UpdateRecipe } from "../admin/pages/UpdateRecipe"
+import { FormBusqueda } from "../publicViews/components/FormBusqueda"
 
 
 /**
@@ -45,6 +46,7 @@ export const AppRouters = () => {
                <Route path='vegetarianas' element={<Vegetarianas />} />
                <Route path='carne' element={<Carne />} />
                <Route path='pescado' element={<Pescado />} />
+               <Route path="/search/:title" element={<HomePage />} />
                <Route path='/*' element={<Navigate to={'/'} />} />
       </>  
      }   

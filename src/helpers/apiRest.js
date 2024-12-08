@@ -20,7 +20,7 @@ export const apiRest = async (url, method = "GET", body = {}) => {
             method,
             body: JSON.stringify(body),// Convierte el cuerpo del objeto en JSON
             mode: `cors`,
-            header:{
+            headers:{
                 "Content-Type": "application/json" // Especifica que el contenido de la solicitud es de tipo JSON
             }
         }    
@@ -31,7 +31,9 @@ export const apiRest = async (url, method = "GET", body = {}) => {
         }
     }
     try {
+        console.log(url, options)
         const resp= await fetch(url, options)
+        
        
         if(resp.ok){
           return resp.json() // Retorna la respuesta en formato JSON si la solicitud es exitosa
